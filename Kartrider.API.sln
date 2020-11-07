@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kartrider.API", "Kartrider.API\Kartrider.API.csproj", "{FD0C1CBB-52A7-480D-916F-6044609620C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kartrider.API.Tests", "Kartrider.API.Tests\Kartrider.API.Tests.csproj", "{094B0B1A-9C73-4569-9BF7-90002BE72629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD0C1CBB-52A7-480D-916F-6044609620C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0C1CBB-52A7-480D-916F-6044609620C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0C1CBB-52A7-480D-916F-6044609620C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0C1CBB-52A7-480D-916F-6044609620C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094B0B1A-9C73-4569-9BF7-90002BE72629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094B0B1A-9C73-4569-9BF7-90002BE72629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094B0B1A-9C73-4569-9BF7-90002BE72629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094B0B1A-9C73-4569-9BF7-90002BE72629}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD3D0AE5-BB49-41A2-8BE4-CAB3BCE9B87D}
+	EndGlobalSection
+EndGlobal
