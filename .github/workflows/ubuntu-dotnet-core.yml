@@ -22,4 +22,4 @@ jobs:
     - name: Test
       env:
         UNIT_TEST_API_KEY: ${{ secrets.UNIT_TEST_API_KEY }}
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --configuration Release --no-restore --verbosity normal
