@@ -1,4 +1,4 @@
-using Kartrider.API.Model;
+ï»¿using Kartrider.API.Model;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,7 +12,7 @@ namespace Kartrider.API.Tests
     public class Metadata_Test
     {
 
-        [TestMethod(displayName: "¾÷µ¥ÀÌÆ®")]
+        [TestMethod(displayName: "ì—…ë°ì´íŠ¸")]
         public void MetadataUpdate()
         {
             API.Metadata metadata = new API.Metadata();
@@ -25,16 +25,16 @@ namespace Kartrider.API.Tests
             }
             //Kartrider.API\Kartrider.API.Tests\file
             string path = Path.Combine("..", "..", "..", "file");
-            //¿Ã¹Ù¸¥ metadata zipÆÄÀÏ °æ·Î
+            //ì˜¬ë°”ë¥¸ metadata zipíŒŒì¼ ê²½ë¡œ
             metadata.Update(Path.Combine(path, "metadata1.zip"));
 
             byte[] bytes = File.ReadAllBytes(Path.Combine(path, "metadata1.zip"));
-            //¿Ã¹Ù¸¥ metadata zip ÆÄÀÏ byte array
+            //ì˜¬ë°”ë¥¸ metadata zip íŒŒì¼ byte array
             metadata.Update(bytes);
 
             try
             {
-                //¿Ã¹Ù¸£Áö ¾ÊÀº metadata zipÆÄÀÏ(ÀÏºÎ .json ÆÄÀÏ ´©¶ô)
+                //ì˜¬ë°”ë¥´ì§€ ì•Šì€ metadata zipíŒŒì¼(ì¼ë¶€ .json íŒŒì¼ ëˆ„ë½)
                 metadata.Update(Path.Combine(path, "metadata2.zip"));
             }
             catch (FileNotFoundException)
@@ -49,7 +49,7 @@ namespace Kartrider.API.Tests
             {
             }
         }
-        [TestMethod(displayName: "¿¢¼¼½º")]
+        [TestMethod(displayName: "ì—‘ì„¸ìŠ¤")]
         public void MetadataAccess()
         {
             Metadata metadata = new Metadata();
@@ -70,7 +70,7 @@ namespace Kartrider.API.Tests
             {
             }
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(AllMatches)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(AllMatches)")]
         public void HashToString1()
         {
             KartAPI kartAPI = KartAPISingleton.KartAPI;
@@ -88,35 +88,35 @@ namespace Kartrider.API.Tests
                 }
             };
             kartAPI.Metadata.HashToString(ref allMatches);
-            Assert.AreEqual(allMatches.Matches[0].MatchType, "¾ÆÀÌÅÛ °³ÀÎÀü");
-            Assert.AreEqual(allMatches.Matches[1].MatchType, "ÇÃ·¡±× °³ÀÎÀü");
+            Assert.AreEqual(allMatches.Matches[0].MatchType, "ì•„ì´í…œ ê°œì¸ì „");
+            Assert.AreEqual(allMatches.Matches[1].MatchType, "í”Œë˜ê·¸ ê°œì¸ì „");
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(Match)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(Match)")]
         public void HashToString2()
         {
             Match match = new Match()
             {
-                //ÇÃ·¡±× °³ÀÎÀü
+                //í”Œë˜ê·¸ ê°œì¸ì „
                 MatchType = "224ab54ee8a63940f4df542524ee4059b94efbd3e8ce94f03707ed39294a0e2e",
                 Matches = new List<MatchInfo>()
                 {
                     new MatchInfo()
                     {
-                        //»şÀÎ
+                        //ìƒ¤ì¸
                         Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                        //ÇÃ·¡±× °³ÀÎÀü
+                        //í”Œë˜ê·¸ ê°œì¸ì „
                         MatchType = "224ab54ee8a63940f4df542524ee4059b94efbd3e8ce94f03707ed39294a0e2e",
-                        //Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                        //ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                         TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                         Player = new Player()
                         {
-                            //»şÀÎ
+                            //ìƒ¤ì¸
                              Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                             //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                             //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                               FlyingPet ="c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                              //°ñµç ÆÄ¶ó°ï 9
+                              //ê³¨ë“  íŒŒë¼ê³¤ 9
                                Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                               //ºÏ±Ø °õÅÊÀÌ
+                               //ë¶ê·¹ ê³°íƒ±ì´
                                 Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                         }
                     }
@@ -124,23 +124,23 @@ namespace Kartrider.API.Tests
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref match);
-            Assert.AreEqual(match.MatchType, "ÇÃ·¡±× °³ÀÎÀü");
-            Assert.AreEqual(match.Matches[0].Character, "»şÀÎ");
-            Assert.AreEqual(match.Matches[0].MatchType, "ÇÃ·¡±× °³ÀÎÀü");
-            Assert.AreEqual(match.Matches[0].Player.Character, "»şÀÎ");
-            Assert.AreEqual(match.Matches[0].Player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-            Assert.AreEqual(match.Matches[0].Player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-            Assert.AreEqual(match.Matches[0].Player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+            Assert.AreEqual(match.MatchType, "í”Œë˜ê·¸ ê°œì¸ì „");
+            Assert.AreEqual(match.Matches[0].Character, "ìƒ¤ì¸");
+            Assert.AreEqual(match.Matches[0].MatchType, "í”Œë˜ê·¸ ê°œì¸ì „");
+            Assert.AreEqual(match.Matches[0].Player.Character, "ìƒ¤ì¸");
+            Assert.AreEqual(match.Matches[0].Player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+            Assert.AreEqual(match.Matches[0].Player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+            Assert.AreEqual(match.Matches[0].Player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
 
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(MatchDetail)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(MatchDetail)")]
         public void HashToString3()
         {
             MatchDetail matchDetail = new MatchDetail()
             {
-                // ÇÃ·¡±× °³ÀÎÀü
+                // í”Œë˜ê·¸ ê°œì¸ì „
                 MatchType = "224ab54ee8a63940f4df542524ee4059b94efbd3e8ce94f03707ed39294a0e2e",
-                // Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                // ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Players = new List<Player>(),
                 MatchResult = TeamId.Red,
@@ -152,13 +152,13 @@ namespace Kartrider.API.Tests
                           {
                                new Player()
                                {
-                                   //»şÀÎ
+                                   //ìƒ¤ì¸
                                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                                      FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                                                                           //°ñµç ÆÄ¶ó°ï 9
+                                                                           //ê³¨ë“  íŒŒë¼ê³¤ 9
                                       Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                                      //ºÏ±Ø °õÅÊÀÌ
+                                      //ë¶ê·¹ ê³°íƒ±ì´
                                        Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                                }
                           }
@@ -168,13 +168,13 @@ namespace Kartrider.API.Tests
                           Players = new List<Player>()
                           {
                               new Player(){
-                                  //»şÀÎ
+                                  //ìƒ¤ì¸
                                Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                               //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                               //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                                      FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                                     //°ñµç ÆÄ¶ó°ï 9
+                                     //ê³¨ë“  íŒŒë¼ê³¤ 9
                                       Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                                      //ºÏ±Ø °õÅÊÀÌ
+                                      //ë¶ê·¹ ê³°íƒ±ì´
                                        Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                               }
                           }
@@ -183,23 +183,23 @@ namespace Kartrider.API.Tests
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref matchDetail);
-            Assert.AreEqual(matchDetail.MatchType, "ÇÃ·¡±× °³ÀÎÀü");
-            Assert.AreEqual(matchDetail.TrackId, "Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2");
+            Assert.AreEqual(matchDetail.MatchType, "í”Œë˜ê·¸ ê°œì¸ì „");
+            Assert.AreEqual(matchDetail.TrackId, "ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2");
             foreach (var team in matchDetail.Teams)
             {
                 foreach (var player in team.Players)
                 {
-                    Assert.AreEqual(player.Character, "»şÀÎ");
-                    Assert.AreEqual(player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-                    Assert.AreEqual(player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-                    Assert.AreEqual(player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+                    Assert.AreEqual(player.Character, "ìƒ¤ì¸");
+                    Assert.AreEqual(player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+                    Assert.AreEqual(player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+                    Assert.AreEqual(player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
                 }
             }
             matchDetail = new MatchDetail()
             {
-                // ÇÃ·¡±× °³ÀÎÀü
+                // í”Œë˜ê·¸ ê°œì¸ì „
                 MatchType = "224ab54ee8a63940f4df542524ee4059b94efbd3e8ce94f03707ed39294a0e2e",
-                // Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                // ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Teams = new List<Team>(),
                 MatchResult = TeamId.Solo,
@@ -207,24 +207,24 @@ namespace Kartrider.API.Tests
                 {
                     new Player()
                     {
-                        //»şÀÎ
+                        //ìƒ¤ì¸
                         Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                        //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                        //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                         FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                        //°ñµç ÆÄ¶ó°ï 9
+                        //ê³¨ë“  íŒŒë¼ê³¤ 9
                         Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                        //ºÏ±Ø °õÅÊÀÌ
+                        //ë¶ê·¹ ê³°íƒ±ì´
                         Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                     },
                     new Player()
                     {
-                        //»şÀÎ
+                        //ìƒ¤ì¸
                         Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                        //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                        //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                         FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                        //°ñµç ÆÄ¶ó°ï 9
+                        //ê³¨ë“  íŒŒë¼ê³¤ 9
                         Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                        //ºÏ±Ø °õÅÊÀÌ
+                        //ë¶ê·¹ ê³°íƒ±ì´
                         Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                     }
                 }
@@ -232,59 +232,59 @@ namespace Kartrider.API.Tests
             kartAPI.Metadata.HashToString(ref matchDetail);
             foreach (var player in matchDetail.Players)
             {
-                Assert.AreEqual(player.Character, "»şÀÎ");
-                Assert.AreEqual(player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-                Assert.AreEqual(player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-                Assert.AreEqual(player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+                Assert.AreEqual(player.Character, "ìƒ¤ì¸");
+                Assert.AreEqual(player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+                Assert.AreEqual(player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+                Assert.AreEqual(player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
             }
 
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(MatchesByMatchType)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(MatchesByMatchType)")]
         public void HashToString4()
         {
             MatchesByMatchType matchesByMatchType = new MatchesByMatchType()
             {
-                //½ºÇÇµå ÆÀÀü
+                //ìŠ¤í”¼ë“œ íŒ€ì „
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e"
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref matchesByMatchType);
-            Assert.AreEqual(matchesByMatchType.MatchType, "½ºÇÇµå ÆÀÀü");
+            Assert.AreEqual(matchesByMatchType.MatchType, "ìŠ¤í”¼ë“œ íŒ€ì „");
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(MatchInfo)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(MatchInfo)")]
         public void HashToString5()
         {
             MatchInfo matchInfo = new MatchInfo()
             {
-                //½ºÇÇµå ÆÀÀü
+                //ìŠ¤í”¼ë“œ íŒ€ì „
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e",
-                //»şÀÎ
+                //ìƒ¤ì¸
                 Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                //Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                //ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Player = new Player()
                 {
-                    //»şÀÎ
+                    //ìƒ¤ì¸
                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                     FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                    //°ñµç ÆÄ¶ó°ï 9
+                    //ê³¨ë“  íŒŒë¼ê³¤ 9
                     Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                    //ºÏ±Ø °õÅÊÀÌ
+                    //ë¶ê·¹ ê³°íƒ±ì´
                     Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
                 }
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref matchInfo);
-            Assert.AreEqual(matchInfo.MatchType, "½ºÇÇµå ÆÀÀü");
-            Assert.AreEqual(matchInfo.Character, "»şÀÎ");
-            Assert.AreEqual(matchInfo.TrackId, "Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2");
-            Assert.AreEqual(matchInfo.Player.Character, "»şÀÎ");
-            Assert.AreEqual(matchInfo.Player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-            Assert.AreEqual(matchInfo.Player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-            Assert.AreEqual(matchInfo.Player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+            Assert.AreEqual(matchInfo.MatchType, "ìŠ¤í”¼ë“œ íŒ€ì „");
+            Assert.AreEqual(matchInfo.Character, "ìƒ¤ì¸");
+            Assert.AreEqual(matchInfo.TrackId, "ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2");
+            Assert.AreEqual(matchInfo.Player.Character, "ìƒ¤ì¸");
+            Assert.AreEqual(matchInfo.Player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+            Assert.AreEqual(matchInfo.Player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+            Assert.AreEqual(matchInfo.Player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(MatchResponse)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(MatchResponse)")]
         public void HashToString6()
         {
             MatchResponse matchResponse = new MatchResponse()
@@ -298,41 +298,41 @@ namespace Kartrider.API.Tests
                           {
                               new MatchInfo()
             {
-                //½ºÇÇµå ÆÀÀü
+                //ìŠ¤í”¼ë“œ íŒ€ì „
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e",
-                //»şÀÎ
+                //ìƒ¤ì¸
                 Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                //Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                //ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Player = new Player()
                 {
-                    //»şÀÎ
+                    //ìƒ¤ì¸
                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                     FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                    //°ñµç ÆÄ¶ó°ï 9
+                    //ê³¨ë“  íŒŒë¼ê³¤ 9
                     Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                    //ºÏ±Ø °õÅÊÀÌ
+                    //ë¶ê·¹ ê³°íƒ±ì´
                     Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
                 }
             },
                               new MatchInfo()
             {
-                //½ºÇÇµå ÆÀÀü
+                //ìŠ¤í”¼ë“œ íŒ€ì „
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e",
-                //»şÀÎ
+                //ìƒ¤ì¸
                 Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                //Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                //ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Player = new Player()
                 {
-                    //»şÀÎ
+                    //ìƒ¤ì¸
                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                     FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                    //°ñµç ÆÄ¶ó°ï 9
+                    //ê³¨ë“  íŒŒë¼ê³¤ 9
                     Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                    //ºÏ±Ø °õÅÊÀÌ
+                    //ë¶ê·¹ ê³°íƒ±ì´
                     Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
                 }
             }
@@ -345,41 +345,41 @@ namespace Kartrider.API.Tests
                           {
                               new MatchInfo()
             {
-                //½ºÇÇµå ÆÀÀü
+                //ìŠ¤í”¼ë“œ íŒ€ì „
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e",
-                //»şÀÎ
+                //ìƒ¤ì¸
                 Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                //Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                //ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Player = new Player()
                 {
-                    //»şÀÎ
+                    //ìƒ¤ì¸
                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                     FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                    //°ñµç ÆÄ¶ó°ï 9
+                    //ê³¨ë“  íŒŒë¼ê³¤ 9
                     Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                    //ºÏ±Ø °õÅÊÀÌ
+                    //ë¶ê·¹ ê³°íƒ±ì´
                     Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
                 }
             },
                               new MatchInfo()
             {
-                //½ºÇÇµå ÆÀÀü
+                //ìŠ¤í”¼ë“œ íŒ€ì „
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e",
-                //»şÀÎ
+                //ìƒ¤ì¸
                 Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                //Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2
+                //ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2
                 TrackId = "67b33be0a18d7a045a6f1a4607b63ba90effad6a075f3238a2e4d098dd123805",
                 Player = new Player()
                 {
-                    //»şÀÎ
+                    //ìƒ¤ì¸
                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                     FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                    //°ñµç ÆÄ¶ó°ï 9
+                    //ê³¨ë“  íŒŒë¼ê³¤ 9
                     Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                    //ºÏ±Ø °õÅÊÀÌ
+                    //ë¶ê·¹ ê³°íƒ±ì´
                     Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
                 }
             }
@@ -389,43 +389,43 @@ namespace Kartrider.API.Tests
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref matchResponse);
-            foreach(var match in matchResponse.Matches)
+            foreach (var match in matchResponse.Matches)
             {
-                Assert.AreEqual(match.MatchType, "½ºÇÇµå ÆÀÀü");
-                foreach(var matchInfo in match.Matches)
+                Assert.AreEqual(match.MatchType, "ìŠ¤í”¼ë“œ íŒ€ì „");
+                foreach (var matchInfo in match.Matches)
                 {
-                    Assert.AreEqual(matchInfo.MatchType, "½ºÇÇµå ÆÀÀü");
-                    Assert.AreEqual(matchInfo.Character, "»şÀÎ");
-                    Assert.AreEqual(matchInfo.TrackId, "Â÷ÀÌ³ª ¼­¾È º´¸¶¿ë 2");
-                    Assert.AreEqual(matchInfo.Player.Character, "»şÀÎ");
-                    Assert.AreEqual(matchInfo.Player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-                    Assert.AreEqual(matchInfo.Player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-                    Assert.AreEqual(matchInfo.Player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+                    Assert.AreEqual(matchInfo.MatchType, "ìŠ¤í”¼ë“œ íŒ€ì „");
+                    Assert.AreEqual(matchInfo.Character, "ìƒ¤ì¸");
+                    Assert.AreEqual(matchInfo.TrackId, "ì°¨ì´ë‚˜ ì„œì•ˆ ë³‘ë§ˆìš© 2");
+                    Assert.AreEqual(matchInfo.Player.Character, "ìƒ¤ì¸");
+                    Assert.AreEqual(matchInfo.Player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+                    Assert.AreEqual(matchInfo.Player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+                    Assert.AreEqual(matchInfo.Player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
                 }
             }
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(Player)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(Player)")]
         public void HashToString7()
         {
             Player player = new Player()
             {
-                //»şÀÎ
+                //ìƒ¤ì¸
                 Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                 FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                //°ñµç ÆÄ¶ó°ï 9
+                //ê³¨ë“  íŒŒë¼ê³¤ 9
                 Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                //ºÏ±Ø °õÅÊÀÌ
+                //ë¶ê·¹ ê³°íƒ±ì´
                 Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref player);
-            Assert.AreEqual(player.Character, "»şÀÎ");
-            Assert.AreEqual(player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-            Assert.AreEqual(player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-            Assert.AreEqual(player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+            Assert.AreEqual(player.Character, "ìƒ¤ì¸");
+            Assert.AreEqual(player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+            Assert.AreEqual(player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+            Assert.AreEqual(player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
         }
-        [TestMethod(displayName: "ÇØ½¬¿¡¼­ ¹®ÀÚ¿­·Î º¯°æ(Team)")]
+        [TestMethod(displayName: "í•´ì‰¬ì—ì„œ ë¬¸ìì—´ë¡œ ë³€ê²½(Team)")]
         public void HashToString8()
         {
 
@@ -435,36 +435,36 @@ namespace Kartrider.API.Tests
                           {
                                new Player()
                                {
-                                   //»şÀÎ
+                                   //ìƒ¤ì¸
                                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                                      FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                                                                           //°ñµç ÆÄ¶ó°ï 9
+                                                                           //ê³¨ë“  íŒŒë¼ê³¤ 9
                                       Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                                      //ºÏ±Ø °õÅÊÀÌ
+                                      //ë¶ê·¹ ê³°íƒ±ì´
                                        Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                                },
                                 new Player()
                                {
-                                   //»şÀÎ
+                                   //ìƒ¤ì¸
                                     Character = "39593f7120cf68c9cb766df8021aa71034a877e6a04afd741a8d842231acd2d3",
-                                    //ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç
+                                    //í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨
                                      FlyingPet = "c8f4efe77a8d14a5183050926ae0a7aaf6cabe6a1918716cbaf96763095197df",
-                                                                           //°ñµç ÆÄ¶ó°ï 9
+                                                                           //ê³¨ë“  íŒŒë¼ê³¤ 9
                                       Kart = "ac8884ba0ee57debdb08a80523cb477a4d89a5981f75fd3398d13793a8dd4ead",
-                                      //ºÏ±Ø °õÅÊÀÌ
+                                      //ë¶ê·¹ ê³°íƒ±ì´
                                        Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f",
                                }
                           }
             };
             KartAPI kartAPI = KartAPISingleton.KartAPI;
             kartAPI.Metadata.HashToString(ref team);
-            foreach(var player in team.Players)
+            foreach (var player in team.Players)
             {
-                Assert.AreEqual(player.Character, "»şÀÎ");
-                Assert.AreEqual(player.FlyingPet, "ÇÃ¶óÀ× ¹Ì»çÀÏ ºí·ç");
-                Assert.AreEqual(player.Kart, "°ñµç ÆÄ¶ó°ï 9");
-                Assert.AreEqual(player.Pet, "ºÏ±Ø °õÅÊÀÌ");
+                Assert.AreEqual(player.Character, "ìƒ¤ì¸");
+                Assert.AreEqual(player.FlyingPet, "í”Œë¼ì‰ ë¯¸ì‚¬ì¼ ë¸”ë£¨");
+                Assert.AreEqual(player.Kart, "ê³¨ë“  íŒŒë¼ê³¤ 9");
+                Assert.AreEqual(player.Pet, "ë¶ê·¹ ê³°íƒ±ì´");
             }
         }
     }
