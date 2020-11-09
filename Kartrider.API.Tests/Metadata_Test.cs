@@ -12,6 +12,11 @@ namespace Kartrider.API.Tests
     public class Metadata_Test
     {
         private Metadata _metadata = MetadataSingleton.Metadata;
+        [TestMethod(displayName: "생성자")]
+        public void Constructor()
+        {
+            new Metadata(true);
+        }
         [TestMethod(displayName: "업데이트")]
         public void MetadataUpdate()
         {
