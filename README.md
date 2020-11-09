@@ -1,6 +1,7 @@
 # kartrider-api-net
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-![Ubuntu .NET Core](https://github.com/zxc010613/kartrider.api.net/workflows/Ubuntu%20.NET%20Core/badge.svg)  
+![Ubuntu .NET Core](https://github.com/zxc010613/kartrider.api.net/workflows/Ubuntu%20.NET%20Core/badge.svg)
+![Nuget package version](https://img.shields.io/nuget/v/kartrider.api?label=nuget%20package)  
 넥슨 개발자 센터에서 제공중인 API의 .NET용 라이브러리입니다.  
 > 넥슨과 어떠한 연관도 없습니다.
 
@@ -23,7 +24,6 @@
 - [라이센스](#라이센스)
 
 ## 설치
-누겟 패키지 링크: [Kartrider.API](https://www.nuget.org/packages/Kartrider.API/)
 ### 패키지 매니저
 ```PM
 Install-Package Kartrider.API -Version 1.0.2
