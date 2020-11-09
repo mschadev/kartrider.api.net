@@ -18,8 +18,7 @@ namespace Kartrider.API.Tests
         [TestMethod(displayName: "메타데이터 다운로드")]
         public void DownloadMetadata()
         {
-            KartAPI kartAPI = KartAPISingleton.KartAPI;
-            kartAPI.DownloadMetadata("metadata.zip");
+            KartAPI.DownloadMetadata("metadata.zip");
             Assert.IsTrue(File.Exists("metadata.zip"));
             File.Delete("metadata.zip");
         }

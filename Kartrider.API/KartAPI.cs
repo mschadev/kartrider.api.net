@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 
@@ -41,11 +42,16 @@ namespace Kartrider.API
         /// 메타데이터 압축 파일을 다운로드한다.
         /// </summary>
         /// <param name="path">저장할 경로</param>
-        public void DownloadMetadata(string path)
+        public static void DownloadMetadata(string path)
         {
-            var respone = _httpClient.GetByteArrayAsync(Define.METADATA_URL);
-            respone.Wait();
-            File.WriteAllBytes(path, respone.Result);
+            using (HttpClient client = new HttpClient())
+            {
+                var response = client.GetByteArrayAsync(Define.METADATA_URL);
+                response.Wait();
+                byte[] data = response.Result;
+                response.Dispose();
+                File.WriteAllBytes(path, response.Result);
+            }
         }
         /// <summary>
         /// 유저 고유 식별자로 유저의 정보를 조회한다.
