@@ -26,15 +26,15 @@
 누겟 패키지 링크: [Kartrider.API](https://www.nuget.org/packages/Kartrider.API/)
 ### 패키지 매니저
 ```PM
-Install-Package Kartrider.API -Version 1.0.1
+Install-Package Kartrider.API -Version 1.0.2
 ```
 ### NET CLI
 ```bash
-dotnet add package Kartrider.API --version 1.0.1
+dotnet add package Kartrider.API --version 1.0.2
 ```
 ### PackageReference
 ```xml
-<PackageReference Include="Kartrider.API" Version="1.0.1" />
+<PackageReference Include="Kartrider.API" Version="1.0.2" />
 ```
 
 ## 사용법
