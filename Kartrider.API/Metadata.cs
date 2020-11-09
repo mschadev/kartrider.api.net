@@ -23,6 +23,19 @@ namespace Kartrider.API
         private Dictionary<string, string> _track = new Dictionary<string, string>();
 
         /// <summary>
+        /// 생성자
+        /// </summary>
+        /// <param name="init">true면 메타데이터 다운로드 후 업데이트</param>
+        public Metadata(bool init = false)
+        {
+            if (init)
+            {
+                string path = Path.Combine(Path.GetTempPath(), "metadata.zip");
+                KartAPI.DownloadMetadata(path);
+                Update(path, true);
+            }
+        }
+        /// <summary>
         /// 메타데이터에서 키에 해당하는 값을 가져온다.
         /// </summary>
         /// <param name="type">메타데이터 타입</param>
