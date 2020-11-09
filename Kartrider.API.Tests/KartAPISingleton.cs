@@ -16,7 +16,7 @@ namespace Kartrider.API.Tests
         }
         static KartAPISingleton()
         {
-            _kartAPI = new KartAPI(Define.API_KEY, true);
+            _kartAPI = new KartAPI(Define.API_KEY);
         }
     }
 }

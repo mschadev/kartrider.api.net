@@ -13,7 +13,7 @@ namespace Kartrider.API.Tests
         [TestMethod(displayName: "생성자 테스트")]
         public void Constructor()
         {
-           new KartAPI(Define.API_KEY, true);
+           new KartAPI(Define.API_KEY);
         }
         [TestMethod(displayName: "메타데이터 다운로드")]
         public void DownloadMetadata()
