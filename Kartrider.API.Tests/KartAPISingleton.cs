@@ -6,17 +6,10 @@ namespace Kartrider.API.Tests
 {
     class KartAPISingleton
     {
-        private static readonly KartAPI _kartAPI;
-        public static KartAPI KartAPI
-        {
-            get
-            {
-                return _kartAPI;
-            }
-        }
+        public static KartAPI KartAPI { get; private set; }
         static KartAPISingleton()
         {
-            _kartAPI = new KartAPI(Define.API_KEY);
+            KartAPI = new KartAPI(Define.API_KEY);
         }
     }
 }
