@@ -9,7 +9,7 @@
 + 메타데이터 지원
 + [HttpClient](https://docs.microsoft.com/ko-kr/dotnet/api/system.net.http.httpclient?view=netcore-3.1)클래스 사용
 + [NET Standard 2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md)
-## Table of Contents
+## 목차
 - [설치](#설치)
     - [패키지 매니저](#패키지-매니저)
     - [NET CLI](#NET-CLI)
