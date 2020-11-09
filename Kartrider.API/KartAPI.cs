@@ -18,14 +18,14 @@ namespace Kartrider.API
         /// <summary>
         /// KartAPI 생성자
         /// </summary>
-        /// <param name="token">API 토큰</param>
-        public KartAPI(string token)
+        /// <param name="apiKey">API 키</param>
+        public KartAPI(string apiKey)
         {
             _httpClient = new HttpClient
             {
                 BaseAddress = new Uri(Define.API_URL_V1),
             };
-            _httpClient.DefaultRequestHeaders.Add("Authorization", token);
+            _httpClient.DefaultRequestHeaders.Add("Authorization", apiKey);
         }
         /// <summary>
         /// 메타데이터 압축 파일을 다운로드한다.
