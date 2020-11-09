@@ -11,7 +11,7 @@ namespace Kartrider.API.Tests
     [TestClass]
     public class Metadata_Test
     {
-        private Metadata _metadata = MetadataSingleton.Metadata;
+        private readonly Metadata _metadata = MetadataSingleton.Metadata;
         [TestMethod(displayName: "생성자")]
         public void Constructor()
         {

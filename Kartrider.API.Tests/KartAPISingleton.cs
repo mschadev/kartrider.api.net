@@ -6,7 +6,7 @@ namespace Kartrider.API.Tests
 {
     class KartAPISingleton
     {
-        private static KartAPI _kartAPI;
+        private static readonly KartAPI _kartAPI;
         public static KartAPI KartAPI
         {
             get
