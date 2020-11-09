@@ -14,29 +14,18 @@ namespace Kartrider.API
     public class KartAPI
     {
         private readonly HttpClient _httpClient;
-        /// <summary>
-        /// 메타데이터
-        /// </summary>
-        public Metadata Metadata { get; } = new Metadata();
 
         /// <summary>
         /// KartAPI 생성자
         /// </summary>
         /// <param name="token">API 토큰</param>
-        /// <param name="initMetadata">true시 메타데이터 업데이트, 그렇지 않으면 업데이트 하지 않음(직접 해야함)</param>
-        public KartAPI(string token, bool initMetadata = false)
+        public KartAPI(string token)
         {
             _httpClient = new HttpClient
             {
                 BaseAddress = new Uri(Define.API_URL_V1),
             };
             _httpClient.DefaultRequestHeaders.Add("Authorization", token);
-            if (initMetadata)
-            {
-                var respone = _httpClient.GetByteArrayAsync(Define.METADATA_URL);
-                respone.Wait();
-                Metadata.Update(respone.Result);
-            }
         }
         /// <summary>
         /// 메타데이터 압축 파일을 다운로드한다.
