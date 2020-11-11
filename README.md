@@ -26,15 +26,15 @@
 ## 설치
 ### 패키지 매니저
 ```PM
-Install-Package Kartrider.API -Version 1.0.2
+Install-Package Kartrider.API -Version 1.0.3
 ```
 ### NET CLI
 ```bash
-dotnet add package Kartrider.API --version 1.0.2
+dotnet add package Kartrider.API --version 1.0.3
 ```
 ### PackageReference
 ```xml
-<PackageReference Include="Kartrider.API" Version="1.0.2" />
+<PackageReference Include="Kartrider.API" Version="1.0.3" />
 ```
 
 ## 사용법
