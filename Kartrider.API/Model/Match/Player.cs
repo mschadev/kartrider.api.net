@@ -1,8 +1,6 @@
 ﻿using Kartrider.API.Json.Converter;
-
 using System;
 using System.Text.Json.Serialization;
-
 namespace Kartrider.API.Model
 {
     /// <summary>
@@ -11,6 +9,11 @@ namespace Kartrider.API.Model
     public class Player
 
     {
+        /// <summary>
+        /// 유저 고유 식별자
+        /// </summary>
+        [JsonPropertyName(name: "accountNo")]
+        public string AccountNo { get; set; }
         /// <summary>
         /// 사용한 캐릭터
         /// </summary>
