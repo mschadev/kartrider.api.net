@@ -1,4 +1,5 @@
-﻿using Kartrider.API.Model;
+﻿using Kartrider.API.Exceptions;
+using Kartrider.API.Model;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -73,6 +74,21 @@ namespace Kartrider.API.Tests
                 }
                 
             }
+        }
+        [TestMethod(displayName: "예외(Not Found)")]
+        public void Exception1()
+        {
+            KartAPI kartAPI = KartAPISingleton.KartAPI;
+            bool exceptionCatch = false;
+            try
+            {
+                kartAPI.GetUserInfoByNickname("qwdascqwe");
+            }
+            catch (KartAPIException e) when(e.StatusCode == KartAPIStatusCode.NotFound) 
+            {
+                exceptionCatch = true;
+            }
+            Assert.IsTrue(exceptionCatch);
         }
     }
 }
