@@ -50,9 +50,19 @@ namespace Kartrider.API
         /// <returns></returns>
         public UserInfo GetUserInfoByAccessId(string accessId)
         {
-            var respone = _httpClient.GetStringAsync($"users/{accessId}");
-            respone.Wait();
-            return JsonSerializer.Deserialize<UserInfo>(respone.Result);
+            string query = $"users/{accessId}";
+            string responseStr;
+            try
+            {
+                var response = _httpClient.GetStringAsync(query);
+                response.Wait();
+                responseStr = response.Result;
+            }
+            catch(AggregateException e)
+            {
+                throw CreateKartAPIException(e, query);
+            }
+            return JsonSerializer.Deserialize<UserInfo>(responseStr);
         }
         /// <summary>
         /// 라이더명으로 유저의 정보를 조회한다.
@@ -61,9 +71,19 @@ namespace Kartrider.API
         /// <returns></returns>
         public UserInfo GetUserInfoByNickname(string nickname)
         {
-            var respone = _httpClient.GetStringAsync($"users/nickname/{nickname}");
-            respone.Wait();
-            return JsonSerializer.Deserialize<UserInfo>(respone.Result);
+            string query = $"users/nickname/{nickname}";
+            string responseStr;
+            try
+            {
+                var response = _httpClient.GetStringAsync($"users/nickname/{nickname}");
+                response.Wait();
+                responseStr = response.Result;
+            }
+            catch(AggregateException e)
+            {
+                throw CreateKartAPIException(e, query);
+            }
+            return JsonSerializer.Deserialize<UserInfo>(responseStr);
         }
         /// <summary>
         /// 유저의 매치 리스트를 매치 타입별, startDate 기준 내림차순으로 반환한다.
@@ -99,9 +119,18 @@ namespace Kartrider.API
                 $"/matches?start_date={(startDate == null ? "" : startDate.Value.ToString(Define.DATETIME_FORMAT))}" +
                 $"&end_date={(endDate == null ? "" : endDate.Value.ToString(Define.DATETIME_FORMAT))} &offset={offset}&limit={limit}" +
                 $"&match_types={matchTypeQueryValue}";
-            var respone = _httpClient.GetStringAsync(query);
-            respone.Wait();
-            return JsonSerializer.Deserialize<MatchResponse>(respone.Result);
+            string responseStr;
+            try
+            {
+                var response = _httpClient.GetStringAsync(query);
+                response.Wait();
+                responseStr = response.Result;
+            }
+            catch(AggregateException e)
+            {
+                throw CreateKartAPIException(e, query);
+            }
+            return JsonSerializer.Deserialize<MatchResponse>(responseStr);
         }
         /// <summary>
         /// 모든 유저의 매치 리스트를 매치 타입별, start_date 기준 내림차순으로 반환한다.
@@ -135,9 +164,18 @@ namespace Kartrider.API
                 $"?start_date={(startDate == null ? "" : startDate.Value.ToString(Define.DATETIME_FORMAT))}" +
                 $"&end_date={(endDate == null ? "" : endDate.Value.ToString(Define.DATETIME_FORMAT))}&offset={offset}&limit={limit}" +
                 $"&match_types={matchTypeQueryValue}";
-            var respone = _httpClient.GetStringAsync(query);
-            respone.Wait();
-            return JsonSerializer.Deserialize<AllMatches>(respone.Result);
+            string responseStr;
+            try
+            {
+                var response = _httpClient.GetStringAsync(query);
+                response.Wait();
+                responseStr = response.Result;
+            }
+            catch(AggregateException e)
+            {
+                throw CreateKartAPIException(e, query);
+            }
+            return JsonSerializer.Deserialize<AllMatches>(responseStr);
         }
         /// <summary>
         /// 매치 고유 식별자로 특정 매치의 상세 정보를 조회한다.
@@ -147,9 +185,18 @@ namespace Kartrider.API
         public MatchDetail GetMatchDetail(string matchId)
         {
             string query = $"matches/{matchId}";
-            var respone = _httpClient.GetStringAsync(query);
-            respone.Wait();
-            return JsonSerializer.Deserialize<MatchDetail>(respone.Result);
+            string responseStr;
+            try
+            {
+                var response = _httpClient.GetStringAsync(query);
+                response.Wait();
+                responseStr = response.Result;
+            }
+            catch(AggregateException e)
+            {
+                throw CreateKartAPIException(e, query);
+            }
+            return JsonSerializer.Deserialize<MatchDetail>(responseStr);
         }
         private KartAPIException CreateKartAPIException(AggregateException e,string queryParameter)
         {
