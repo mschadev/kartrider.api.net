@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 
 namespace Kartrider.API.Tests
 {
@@ -455,6 +456,27 @@ namespace Kartrider.API.Tests
                 Assert.AreEqual(player.Kart, "골든 파라곤 9");
                 Assert.AreEqual(player.Pet, "북극 곰탱이");
             }
+        }
+        [TestMethod(displayName: "메타데이터 부분 업데이트")]
+        public void Update1()
+        {
+            Metadata metadata = new Metadata(false);
+            KartAPI.DownloadMetadata("metadata.zip");
+            ZipFile.ExtractToDirectory("metadata.zip", "metadata");
+            metadata.Update(Path.Combine("metadata", "character.json"));
+            metadata.Update(Path.Combine("metadata", "flyingPet.json"));
+            metadata.Update(Path.Combine("metadata", "gameType.json"));
+            metadata.Update(Path.Combine("metadata", "kart.json"));
+            metadata.Update(Path.Combine("metadata", "pet.json"));
+            metadata.Update(Path.Combine("metadata", "track.json"));
+            Assert.AreEqual(metadata[MetadataType.Character, "4c139477f1eef41ec9a1c7c50319c6f391abb074fa44242eb7a143007e7f7720"], "황금우비 배찌");
+            Assert.AreEqual(metadata[MetadataType.FlyingPet, "52960349bbbaed8cfe9999fc285824180ef1a423ed0c6b481cd1367c913e1ba9"], "플라잉 캔디");
+            Assert.AreEqual(metadata[MetadataType.GameType, "7ca6fd44026a2c8f5d939b60aa56b4b1714b9cc2355ec5e317154d4cf0675da0"], "아이템 개인전");
+            Assert.AreEqual(metadata[MetadataType.Kart, "4a3d34d9958d54ab218513e2dc406a6a7bc30e529292895475a11a986550b437"], "골드 드래곤 HT");
+            Assert.AreEqual(metadata[MetadataType.Pet, "9ecb721ca7670d9c196341ca19ca19fcf7a60b9e8ffe010cc53a7105afaefc96"], "나타샤");
+            Assert.AreEqual(metadata[MetadataType.Track, "ace5823799b7627a033be069afabecf1d3ee9a9a90aae313b66fb405da724a93"], "노르테유 부스터존 점령작전");
+            File.Delete("metadata.zip");
+            Directory.Delete("metadata", true);
         }
     }
 }
