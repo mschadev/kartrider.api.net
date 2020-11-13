@@ -100,11 +100,11 @@ namespace Kartrider.API
         /// <summary>
         /// 특정 json파일에 대해서만 업데이트
         /// </summary>
-        /// <param name="jsonFilePath">json 파일 경로</param>
-        public void Update(string jsonFilePath)
+        /// <param name="jsonFile">json 파일</param>
+        public void Update(FileInfo jsonFile)
         {
-            string fileName = Path.GetFileName(jsonFilePath);
-            string dirPath = Path.GetDirectoryName(jsonFilePath);
+            string fileName = jsonFile.Name;
+            string dirPath = jsonFile.DirectoryName;
             if(fileName == "character.json")
             {
                 LoadMetadata(dirPath, "character.json", out _character);

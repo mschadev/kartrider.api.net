@@ -1,8 +1,6 @@
 ﻿using Kartrider.API.Model;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -463,12 +461,12 @@ namespace Kartrider.API.Tests
             Metadata metadata = new Metadata(false);
             KartAPI.DownloadMetadata("metadata.zip");
             ZipFile.ExtractToDirectory("metadata.zip", "metadata");
-            metadata.Update(Path.Combine("metadata", "character.json"));
-            metadata.Update(Path.Combine("metadata", "flyingPet.json"));
-            metadata.Update(Path.Combine("metadata", "gameType.json"));
-            metadata.Update(Path.Combine("metadata", "kart.json"));
-            metadata.Update(Path.Combine("metadata", "pet.json"));
-            metadata.Update(Path.Combine("metadata", "track.json"));
+            metadata.Update(new FileInfo(Path.Combine("metadata", "character.json")));
+            metadata.Update(new FileInfo(Path.Combine("metadata", "flyingPet.json")));
+            metadata.Update(new FileInfo(Path.Combine("metadata", "gameType.json")));
+            metadata.Update(new FileInfo(Path.Combine("metadata", "kart.json")));
+            metadata.Update(new FileInfo(Path.Combine("metadata", "pet.json")));
+            metadata.Update(new FileInfo(Path.Combine("metadata", "track.json")));
             Assert.AreEqual(metadata[MetadataType.Character, "4c139477f1eef41ec9a1c7c50319c6f391abb074fa44242eb7a143007e7f7720"], "황금우비 배찌");
             Assert.AreEqual(metadata[MetadataType.FlyingPet, "52960349bbbaed8cfe9999fc285824180ef1a423ed0c6b481cd1367c913e1ba9"], "플라잉 캔디");
             Assert.AreEqual(metadata[MetadataType.GameType, "7ca6fd44026a2c8f5d939b60aa56b4b1714b9cc2355ec5e317154d4cf0675da0"], "아이템 개인전");
