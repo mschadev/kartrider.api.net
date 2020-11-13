@@ -202,14 +202,7 @@ namespace Kartrider.API
                 matchResponse.Matches[i].MatchType = this[MetadataType.GameType, matchResponse.Matches[i].MatchType, defaultValue];
                 for (int j = 0; j < matchResponse.Matches[i].Matches.Count; j++)
                 {
-                    matchResponse.Matches[i].Matches[j].Character = this[MetadataType.Character, matchResponse.Matches[i].Matches[j].Character, defaultValue];
-                    matchResponse.Matches[i].Matches[j].TrackId = this[MetadataType.Track, matchResponse.Matches[i].Matches[j].TrackId, defaultValue];
-                    matchResponse.Matches[i].Matches[j].MatchType = this[MetadataType.GameType, matchResponse.Matches[i].Matches[j].MatchType, defaultValue];
-
-                    matchResponse.Matches[i].Matches[j].Player.Character = this[MetadataType.Character, matchResponse.Matches[i].Matches[j].Player.Character, defaultValue];
-                    matchResponse.Matches[i].Matches[j].Player.FlyingPet = this[MetadataType.FlyingPet, matchResponse.Matches[i].Matches[j].Player.FlyingPet, defaultValue];
-                    matchResponse.Matches[i].Matches[j].Player.Kart = this[MetadataType.Kart, matchResponse.Matches[i].Matches[j].Player.Kart, defaultValue];
-                    matchResponse.Matches[i].Matches[j].Player.Pet = this[MetadataType.Pet, matchResponse.Matches[i].Matches[j].Player.Pet, defaultValue];
+                    HashToString(matchResponse.Matches[i].Matches[j]);
                 }
             }
         }
@@ -238,10 +231,7 @@ namespace Kartrider.API
             {
                 for (int i = 0; i < matchDetail.Players.Count; i++)
                 {
-                    matchDetail.Players[i].Character = this[MetadataType.Character, matchDetail.Players[i].Character, defaultValue];
-                    matchDetail.Players[i].FlyingPet = this[MetadataType.FlyingPet, matchDetail.Players[i].FlyingPet, defaultValue];
-                    matchDetail.Players[i].Kart = this[MetadataType.Kart, matchDetail.Players[i].Kart, defaultValue];
-                    matchDetail.Players[i].Pet = this[MetadataType.Pet, matchDetail.Players[i].Pet, defaultValue];
+                    HashToString(matchDetail.Players[i]);
                 }
             }
             else
@@ -250,10 +240,7 @@ namespace Kartrider.API
                 {
                     for (int j = 0; j < matchDetail.Teams[i].Players.Count; j++)
                     {
-                        matchDetail.Teams[i].Players[j].Character = this[MetadataType.Character, matchDetail.Teams[i].Players[j].Character, defaultValue];
-                        matchDetail.Teams[i].Players[j].FlyingPet = this[MetadataType.FlyingPet, matchDetail.Teams[i].Players[j].FlyingPet, defaultValue];
-                        matchDetail.Teams[i].Players[j].Kart = this[MetadataType.Kart, matchDetail.Teams[i].Players[j].Kart, defaultValue];
-                        matchDetail.Teams[i].Players[j].Pet = this[MetadataType.Pet, matchDetail.Teams[i].Players[j].Pet, defaultValue];
+                        HashToString(matchDetail.Teams[i].Players[j]);
                     }
                 }
             }
@@ -268,10 +255,7 @@ namespace Kartrider.API
             matchInfo.MatchType = this[MetadataType.GameType, matchInfo.MatchType, defaultValue];
             matchInfo.Character = this[MetadataType.Character, matchInfo.Character, defaultValue];
             matchInfo.TrackId = this[MetadataType.Track, matchInfo.TrackId, defaultValue];
-            matchInfo.Player.Character = this[MetadataType.Character, matchInfo.Player.Character, defaultValue];
-            matchInfo.Player.Kart = this[MetadataType.Kart, matchInfo.Player.Kart, defaultValue];
-            matchInfo.Player.Pet = this[MetadataType.Pet, matchInfo.Player.Pet, defaultValue];
-            matchInfo.Player.FlyingPet = this[MetadataType.FlyingPet, matchInfo.Player.FlyingPet, defaultValue];
+            HashToString(matchInfo.Player);
         }
         /// <summary>
         /// Hash를 읽을 수 있는 문자열로 변경한다.
@@ -295,14 +279,7 @@ namespace Kartrider.API
             match.MatchType = this[MetadataType.GameType, match.MatchType, defaultValue];
             for(int i = 0; i < match.Matches.Count; i++)
             {
-                match.Matches[i].Character = this[MetadataType.Character, match.Matches[i].Character, defaultValue];
-                match.Matches[i].TrackId = this[MetadataType.Track, match.Matches[i].TrackId, defaultValue];
-                match.Matches[i].MatchType = this[MetadataType.GameType, match.Matches[i].MatchType, defaultValue];
-
-                match.Matches[i].Player.Character = this[MetadataType.Character, match.Matches[i].Player.Character, defaultValue];
-                match.Matches[i].Player.FlyingPet = this[MetadataType.FlyingPet, match.Matches[i].Player.FlyingPet, defaultValue];
-                match.Matches[i].Player.Kart = this[MetadataType.Kart, match.Matches[i].Player.Kart, defaultValue];
-                match.Matches[i].Player.Pet = this[MetadataType.Pet, match.Matches[i].Player.Pet, defaultValue];
+                HashToString(match.Matches[i]);
             }
         }
         /// <summary>
@@ -314,10 +291,7 @@ namespace Kartrider.API
         {
             for(int i = 0; i < team.Players.Count; i++)
             {
-                team.Players[i].Character = this[MetadataType.Character, team.Players[i].Character, defaultValue];
-                team.Players[i].Kart = this[MetadataType.Kart, team.Players[i].Kart, defaultValue];
-                team.Players[i].Pet = this[MetadataType.Pet, team.Players[i].Pet, defaultValue];
-                team.Players[i].FlyingPet = this[MetadataType.FlyingPet, team.Players[i].FlyingPet, defaultValue];
+                HashToString(team.Players[i]);
             }
         }
         /// <summary>
