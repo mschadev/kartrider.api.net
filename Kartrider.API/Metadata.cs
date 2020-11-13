@@ -195,7 +195,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="matchResponse">Hash를 읽을 수 있는 문자열로 바꿀려는 MatchResponse 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref MatchResponse matchResponse, string defaultValue = null)
+        public void HashToString(MatchResponse matchResponse, string defaultValue = null)
         {
             for (int i = 0; i < matchResponse.Matches.Count; i++)
             {
@@ -218,7 +218,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="allMatches">Hash를 읽을 수 있는 문자열로 바꿀려는 AllMatches 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref AllMatches allMatches, string defaultValue = null)
+        public void HashToString(AllMatches allMatches, string defaultValue = null)
         {
             for (int i = 0; i < allMatches.Matches.Count; i++)
             {
@@ -230,7 +230,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="matchDetail">Hash를 읽을 수 있는 문자열로 바꿀려는 MatchDetail 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref MatchDetail matchDetail, string defaultValue = null)
+        public void HashToString(MatchDetail matchDetail, string defaultValue = null)
         {
             matchDetail.MatchType = this[MetadataType.GameType, matchDetail.MatchType, defaultValue];
             matchDetail.TrackId = this[MetadataType.Track, matchDetail.TrackId, defaultValue];
@@ -263,7 +263,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="matchInfo">Hash를 읽을 수 있는 문자열로 바꿀려는 MatchInfo 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref MatchInfo matchInfo, string defaultValue = null)
+        public void HashToString(MatchInfo matchInfo, string defaultValue = null)
         {
             matchInfo.MatchType = this[MetadataType.GameType, matchInfo.MatchType, defaultValue];
             matchInfo.Character = this[MetadataType.Character, matchInfo.Character, defaultValue];
@@ -278,7 +278,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="player">Hash를 읽을 수 있는 문자열로 바꿀려는 Player 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref Player player,string defaultValue = null)
+        public void HashToString(Player player,string defaultValue = null)
         {
             player.Character = this[MetadataType.Character, player.Character, defaultValue];
             player.Kart = this[MetadataType.Kart, player.Kart, defaultValue];
@@ -290,7 +290,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="match">Hash를 읽을 수 있는 문자열로 바꿀려는 Match 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref Match match,string defaultValue = null)
+        public void HashToString(Match match,string defaultValue = null)
         {
             match.MatchType = this[MetadataType.GameType, match.MatchType, defaultValue];
             for(int i = 0; i < match.Matches.Count; i++)
@@ -310,7 +310,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="team">Hash를 읽을 수 있는 문자열로 바꿀려는 Team 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref Team team, string defaultValue = null)
+        public void HashToString(Team team, string defaultValue = null)
         {
             for(int i = 0; i < team.Players.Count; i++)
             {
@@ -325,7 +325,7 @@ namespace Kartrider.API
         /// </summary>
         /// <param name="matchesByMatchType">Hash를 읽을 수 있는 문자열로 바꿀려는 MatchesByMatchType 클래스</param>
         /// <param name="defaultValue">Hash가 없을 때 사용하는 기본값</param>
-        public void HashToString(ref MatchesByMatchType matchesByMatchType, string defaultValue = null)
+        public void HashToString(MatchesByMatchType matchesByMatchType, string defaultValue = null)
         {
             matchesByMatchType.MatchType = this[MetadataType.GameType, matchesByMatchType.MatchType, defaultValue];
         }

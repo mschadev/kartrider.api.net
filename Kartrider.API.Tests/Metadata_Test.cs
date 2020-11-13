@@ -82,7 +82,7 @@ namespace Kartrider.API.Tests
                       }
                 }
             };
-            _metadata.HashToString(ref allMatches);
+            _metadata.HashToString(allMatches);
             Assert.AreEqual(allMatches.Matches[0].MatchType, "아이템 개인전");
             Assert.AreEqual(allMatches.Matches[1].MatchType, "플래그 개인전");
         }
@@ -117,7 +117,7 @@ namespace Kartrider.API.Tests
                     }
                 }
             };
-            _metadata.HashToString(ref match);
+            _metadata.HashToString(match);
             Assert.AreEqual(match.MatchType, "플래그 개인전");
             Assert.AreEqual(match.Matches[0].Character, "샤인");
             Assert.AreEqual(match.Matches[0].MatchType, "플래그 개인전");
@@ -175,7 +175,7 @@ namespace Kartrider.API.Tests
                      }
                  }
             };
-            _metadata.HashToString(ref matchDetail);
+            _metadata.HashToString(matchDetail);
             Assert.AreEqual(matchDetail.MatchType, "플래그 개인전");
             Assert.AreEqual(matchDetail.TrackId, "차이나 서안 병마용 2");
             foreach (var team in matchDetail.Teams)
@@ -222,7 +222,7 @@ namespace Kartrider.API.Tests
                     }
                 }
             };
-            _metadata.HashToString(ref matchDetail);
+            _metadata.HashToString(matchDetail);
             foreach (var player in matchDetail.Players)
             {
                 Assert.AreEqual(player.Character, "샤인");
@@ -240,7 +240,7 @@ namespace Kartrider.API.Tests
                 //스피드 팀전
                 MatchType = "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e"
             };
-            _metadata.HashToString(ref matchesByMatchType);
+            _metadata.HashToString(matchesByMatchType);
             Assert.AreEqual(matchesByMatchType.MatchType, "스피드 팀전");
         }
         [TestMethod(displayName: "해쉬에서 문자열로 변경(MatchInfo)")]
@@ -266,7 +266,7 @@ namespace Kartrider.API.Tests
                     Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
                 }
             };
-            _metadata.HashToString(ref matchInfo);
+            _metadata.HashToString(matchInfo);
             Assert.AreEqual(matchInfo.MatchType, "스피드 팀전");
             Assert.AreEqual(matchInfo.Character, "샤인");
             Assert.AreEqual(matchInfo.TrackId, "차이나 서안 병마용 2");
@@ -378,7 +378,7 @@ namespace Kartrider.API.Tests
                      }
                  }
             };
-            _metadata.HashToString(ref matchResponse);
+            _metadata.HashToString(matchResponse);
             foreach (var match in matchResponse.Matches)
             {
                 Assert.AreEqual(match.MatchType, "스피드 팀전");
@@ -408,7 +408,7 @@ namespace Kartrider.API.Tests
                 //북극 곰탱이
                 Pet = "96381e10913b82441e895139c83cff9f8364ed8d0ff5dd837adb01862be9365f"
             };
-            _metadata.HashToString(ref player);
+            _metadata.HashToString(player);
             Assert.AreEqual(player.Character, "샤인");
             Assert.AreEqual(player.FlyingPet, "플라잉 미사일 블루");
             Assert.AreEqual(player.Kart, "골든 파라곤 9");
@@ -446,7 +446,7 @@ namespace Kartrider.API.Tests
                                }
                           }
             };
-            _metadata.HashToString(ref team);
+            _metadata.HashToString(team);
             foreach (var player in team.Players)
             {
                 Assert.AreEqual(player.Character, "샤인");
