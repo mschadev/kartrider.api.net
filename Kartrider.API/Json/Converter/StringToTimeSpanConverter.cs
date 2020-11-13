@@ -34,7 +34,7 @@ namespace Kartrider.API.Json.Converter
             }
             else
             {
-                str = value.Seconds.ToString()+value.Milliseconds.ToString();
+                str = Convert.ToInt32(value.TotalSeconds).ToString() + value.Milliseconds.ToString("000");
             }
             writer.WriteStringValue(str);
         }
