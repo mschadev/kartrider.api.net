@@ -98,6 +98,39 @@ namespace Kartrider.API
             }
         }
         /// <summary>
+        /// 특정 json파일에 대해서만 업데이트
+        /// </summary>
+        /// <param name="jsonFilePath">json 파일 경로</param>
+        public void Update(string jsonFilePath)
+        {
+            string fileName = Path.GetFileName(jsonFilePath);
+            string dirPath = Path.GetDirectoryName(jsonFilePath);
+            if(fileName == "character.json")
+            {
+                LoadMetadata(dirPath, "character.json", out _character);
+            }
+            else if(fileName == "flyingPet.json")
+            {
+                LoadMetadata(dirPath, "flyingPet.json", out _flyingPet);
+            }
+            else if(fileName == "gameType.json")
+            {
+                LoadMetadata(dirPath, "gameType.json", out _gameType);
+            }
+            else if (fileName == "kart.json")
+            {
+                LoadMetadata(dirPath, "kart.json", out _kart);
+            }
+            else if (fileName == "pet.json")
+            {
+                LoadMetadata(dirPath, "pet.json", out _pet);
+            }
+            else if (fileName == "track.json")
+            {
+                LoadMetadata(dirPath, "track.json", out _track);
+            }
+        }
+        /// <summary>
         /// 메타데이터 업데이트
         /// </summary>
         /// <param name="filePath">.zip 파일 경로</param>
