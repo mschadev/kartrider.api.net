@@ -45,14 +45,6 @@ namespace Kartrider.API.Tests
             catch (FileNotFoundException)
             {
             }
-
-            try
-            {
-                metadata.Update(null);
-            }
-            catch (ArgumentNullException)
-            {
-            }
         }
         [TestMethod(displayName: "엑세스")]
         public void MetadataAccess()
