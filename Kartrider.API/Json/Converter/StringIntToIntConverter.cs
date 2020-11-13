@@ -20,6 +20,6 @@ namespace Kartrider.API.Json.Converter
             int value,
             JsonSerializerOptions options)
             =>
-                writer.WriteStringValue(value.ToString());
+                writer.WriteStringValue(value == -1 ? "" : value.ToString());
     }
 }
