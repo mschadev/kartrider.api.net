@@ -54,6 +54,7 @@ namespace test
 }
 ```
 HTTP 통신은 [HttpClient](https://docs.microsoft.com/ko-kr/dotnet/api/system.net.http.httpclient?view=netcore-3.1)를 사용하였으므로 싱글톤 패턴으로 구현해서 사용하는 것을 추천합니다.
++ [싱글톤 패턴 위키](https://github.com/zxc010613/kartrider.api.net/wiki/%EC%8B%B1%EA%B8%80%ED%86%A4-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4%EC%97%90-%EB%8C%80%ED%95%B4)
 ## 개발 및 테스트
 해당 프로젝트는 유닛 테스트로 MSTEST를 사용중입니다.  
 테스트할 때 사용할 키는 **파일 방식**과 **환경 변수 방식**을 지원하고 있습니다.  
