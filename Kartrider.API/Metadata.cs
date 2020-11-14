@@ -202,7 +202,7 @@ namespace Kartrider.API
                 matchResponse.Matches[i].MatchType = this[MetadataType.GameType, matchResponse.Matches[i].MatchType, defaultValue];
                 for (int j = 0; j < matchResponse.Matches[i].Matches.Count; j++)
                 {
-                    HashToString(matchResponse.Matches[i].Matches[j]);
+                    HashToString(matchResponse.Matches[i].Matches[j], defaultValue);
                 }
             }
         }
@@ -231,7 +231,7 @@ namespace Kartrider.API
             {
                 for (int i = 0; i < matchDetail.Players.Count; i++)
                 {
-                    HashToString(matchDetail.Players[i]);
+                    HashToString(matchDetail.Players[i], defaultValue);
                 }
             }
             else
@@ -240,7 +240,7 @@ namespace Kartrider.API
                 {
                     for (int j = 0; j < matchDetail.Teams[i].Players.Count; j++)
                     {
-                        HashToString(matchDetail.Teams[i].Players[j]);
+                        HashToString(matchDetail.Teams[i].Players[j], defaultValue);
                     }
                 }
             }
@@ -255,7 +255,7 @@ namespace Kartrider.API
             matchInfo.MatchType = this[MetadataType.GameType, matchInfo.MatchType, defaultValue];
             matchInfo.Character = this[MetadataType.Character, matchInfo.Character, defaultValue];
             matchInfo.TrackId = this[MetadataType.Track, matchInfo.TrackId, defaultValue];
-            HashToString(matchInfo.Player);
+            HashToString(matchInfo.Player, defaultValue);
         }
         /// <summary>
         /// Hash를 읽을 수 있는 문자열로 변경한다.
@@ -279,7 +279,7 @@ namespace Kartrider.API
             match.MatchType = this[MetadataType.GameType, match.MatchType, defaultValue];
             for(int i = 0; i < match.Matches.Count; i++)
             {
-                HashToString(match.Matches[i]);
+                HashToString(match.Matches[i], defaultValue);
             }
         }
         /// <summary>
@@ -291,7 +291,7 @@ namespace Kartrider.API
         {
             for(int i = 0; i < team.Players.Count; i++)
             {
-                HashToString(team.Players[i]);
+                HashToString(team.Players[i], defaultValue);
             }
         }
         /// <summary>
