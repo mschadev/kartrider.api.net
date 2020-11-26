@@ -85,7 +85,7 @@ namespace Kartrider.API.Tests
             {
                 kartAPI.GetUserInfoByNickname("qwdascqwe");
             }
-            catch (KartAPIException e) when(e.StatusCode == KartAPIStatusCode.NotFound) 
+            catch (KartAPIRequestException e) when(e.StatusCode == KartAPIStatusCode.NotFound) 
             {
                 exceptionCatch = true;
             }

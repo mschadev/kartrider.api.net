@@ -61,7 +61,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIException(e, query);
+                throw CreateKartAPIRequestException(e, query);
             }
             return JsonSerializer.Deserialize<UserInfo>(responseStr);
         }
@@ -82,7 +82,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIException(e, query);
+                throw CreateKartAPIRequestException(e, query);
             }
             return JsonSerializer.Deserialize<UserInfo>(responseStr);
         }
@@ -120,7 +120,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIException(e, query);
+                throw CreateKartAPIRequestException(e, query);
             }
             return JsonSerializer.Deserialize<MatchResponse>(responseStr);
         }
@@ -157,7 +157,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIException(e, query);
+                throw CreateKartAPIRequestException(e, query);
             }
             return JsonSerializer.Deserialize<AllMatches>(responseStr);
         }
@@ -178,11 +178,11 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIException(e, query);
+                throw CreateKartAPIRequestException(e, query);
             }
             return JsonSerializer.Deserialize<MatchDetail>(responseStr);
         }
-        private KartAPIException CreateKartAPIException(AggregateException e,string queryParameter)
+        private KartAPIRequestException CreateKartAPIRequestException(AggregateException e,string queryParameter)
         {
             //One or more errors occurred. (Response status code does not indicate success: 400 (Bad Request).)
             string apiKey = _httpClient.DefaultRequestHeaders.Authorization.Scheme;
@@ -190,7 +190,7 @@ namespace Kartrider.API
             KartAPIStatusCode kartAPIStatusCode = (KartAPIStatusCode)Enum.Parse(typeof(KartAPIStatusCode), statusCode);
             int messageIndex = e.Message.LastIndexOf('(')+1;
             string message = e.Message.Substring(messageIndex, e.Message.LastIndexOf(')') - messageIndex - 2) + ".";
-            return new KartAPIException(message, queryParameter, apiKey, kartAPIStatusCode);
+            return new KartAPIRequestException(message, queryParameter, apiKey, kartAPIStatusCode);
         }
     }
 }
