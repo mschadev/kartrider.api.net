@@ -89,8 +89,8 @@ namespace Kartrider.API
         /// 유저의 매치 리스트를 매치 타입별, startDate 기준 내림차순으로 반환한다.
         /// </summary>
         /// <param name="accessId">유저 고유 식별자</param>
-        /// <param name="startDate">조회 시작 날짜 (UTC) (ex: 2019-02-15 01:00:00)</param>
-        /// <param name="endDate">조회 끝 날짜 (UTC) (ex: 2019-02-15 02:00:00)</param>
+        /// <param name="startDate">조회 시작 날짜 (UTC 기준) (ex: 2019-02-15 01:00:00)</param>
+        /// <param name="endDate">조회 끝 날짜 (UTC 기준) (ex: 2019-02-15 02:00:00)</param>
         /// <param name="offset">오프셋</param>
         /// <param name="limit">조회 수</param>
         /// <param name="matchTypes">매치 타입 HashID 목록</param>
@@ -104,15 +104,6 @@ namespace Kartrider.API
             if (limit < 1 || 500 < limit)
             {
                 throw new ArgumentOutOfRangeException("Valid 'limit' Value Range: 1 < limit < 500");
-            }
-
-            if (startDate != null)
-            {
-                startDate = startDate.Value.ToUniversalTime();
-            }
-            if (endDate != null)
-            {
-                endDate = endDate.Value.ToUniversalTime();
             }
             string matchTypeQueryValue = matchTypes == null ? "" : string.Join(",", matchTypes);
             string query = $"users/{accessId}" +
@@ -150,14 +141,6 @@ namespace Kartrider.API
             if (limit < 1 || 500 < limit)
             {
                 throw new ArgumentOutOfRangeException("Valid 'limit' Value Range: 1 < limit < 500");
-            }
-            if (startDate != null)
-            {
-                startDate = startDate.Value.ToUniversalTime();
-            }
-            if (endDate != null)
-            {
-                endDate = endDate.Value.ToUniversalTime();
             }
             string matchTypeQueryValue = matchTypes == null ? "" : string.Join(",", matchTypes);
             string query = $"matches/all" +
