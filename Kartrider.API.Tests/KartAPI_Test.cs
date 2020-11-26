@@ -21,8 +21,9 @@ namespace Kartrider.API.Tests
         public void DownloadMetadata()
         {
             KartAPI.DownloadMetadata("metadata.zip");
-            Assert.IsTrue(File.Exists("metadata.zip"));
+            bool check = File.Exists("metadata.zip");
             File.Delete("metadata.zip");
+            Assert.IsTrue(check);
         }
         [TestMethod(displayName: "유저 고유 식별자로 라이더명 조회")]
         public void GetUserInfoByAccessId()
