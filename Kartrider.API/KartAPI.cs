@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace Kartrider.API
 {
@@ -185,7 +186,7 @@ namespace Kartrider.API
         {
             //One or more errors occurred. (Response status code does not indicate success: 400 (Bad Request).)
             string apiKey = _httpClient.DefaultRequestHeaders.Authorization.Scheme;
-            string statusCode = e.Message.Substring(e.Message.LastIndexOf(':') +1, 4);
+            string statusCode = Regex.Match(e.Message, @"\d{3}").Value;
             KartAPIStatusCode kartAPIStatusCode = (KartAPIStatusCode)Enum.Parse(typeof(KartAPIStatusCode), statusCode);
             int messageIndex = e.Message.LastIndexOf('(')+1;
             string message = e.Message.Substring(messageIndex, e.Message.LastIndexOf(')') - messageIndex - 2) + ".";
