@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Kartrider.API.Tests
 {
@@ -53,13 +54,12 @@ namespace Kartrider.API.Tests
         public void GetAllMatches()
         {
             KartAPI kartAPI = KartAPISingleton.KartAPI;
-            kartAPI.GetAllMatches(null, null, 0, 100, new string[]{
+            AllMatches allMatches = kartAPI.GetAllMatches(null, null, 0, 100, new string[]{
                 "7b9f0fd5377c38514dbb78ebe63ac6c3b81009d5a31dd569d1cff8f005aa881a",
 "effd66758144a29868663aa50e85d3d95c5bc0147d7fdb9802691c2087f3416e"
                   });
-            DateTime startDate = DateTime.Now.AddMinutes(-1).AddSeconds(-10);
-            DateTime endDate = DateTime.Now;
-            kartAPI.GetAllMatches(startDate, endDate, 0, 200);
+            int matchCount = allMatches.Matches.Select(p => p.Matches.Count()).Sum();
+            Assert.AreEqual(matchCount, 100);
         }
         [TestMethod(displayName: "특정 매치의 상세 정보 조회")]
         public void GetMatchDetail()
