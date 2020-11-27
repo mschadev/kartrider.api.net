@@ -181,10 +181,6 @@ namespace Kartrider.API
         private void LoadMetadata(string path, string fileName, out Dictionary<string, string> model)
         {
             string filePath = Path.Combine(path, fileName);
-            //if (!File.Exists(filePath))
-            //{
-            //    throw new FileNotFoundException("File not found in Metadata: "+ fileName);
-            //}
             string content = File.ReadAllText(filePath);
             var deserializeOptions = new JsonSerializerOptions();
             deserializeOptions.Converters.Add(new MetadataConverter());

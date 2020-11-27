@@ -83,7 +83,6 @@ namespace Kartrider.API.Model
         [JsonConverter(typeof(StringBoolToBoolConverter))]
         [JsonPropertyName(name: "matchRetired")]
         public bool MatchRetired { get; set; }
-        //public string rankinggrade2 { get; set; }
         /// <summary>
         /// 플레이어 이름
         /// </summary>

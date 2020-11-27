@@ -43,8 +43,6 @@ namespace Kartrider.API.Model
         [JsonPropertyName(name: "matchResult")]
         public bool MatchResult { get; set; }
 
-        //public string SeasonType { get; set; }
-
         /// <summary>
         /// 게임 시작 시간
         /// </summary>
@@ -55,14 +53,6 @@ namespace Kartrider.API.Model
         /// </summary>
         [JsonPropertyName(name: "endTime")]
         public DateTime EndTime { get; set; }
-
-
-        ///// <summary>
-        ///// 게임 진행 시간, 항상 1등 기록 + 10초 값임
-        ///// </summary>
-
-        //public DateTime PlayTime { get; set; }
-
         /// <summary>
         /// 채널 명
         /// </summary>
