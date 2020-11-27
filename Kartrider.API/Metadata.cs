@@ -31,7 +31,7 @@ namespace Kartrider.API
             if (init)
             {
                 string path = Path.Combine(Path.GetTempPath(), "metadata.zip");
-                KartAPI.DownloadMetadata(path);
+                KartApi.DownloadMetadata(path);
                 Update(path, true);
             }
         }

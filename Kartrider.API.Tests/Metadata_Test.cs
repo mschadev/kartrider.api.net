@@ -459,7 +459,7 @@ namespace Kartrider.API.Tests
         public void Update1()
         {
             Metadata metadata = new Metadata(false);
-            KartAPI.DownloadMetadata("metadata.zip");
+            KartApi.DownloadMetadata("metadata.zip");
             ZipFile.ExtractToDirectory("metadata.zip", "metadata");
             metadata.Update(new FileInfo(Path.Combine("metadata", "character.json")));
             metadata.Update(new FileInfo(Path.Combine("metadata", "flyingPet.json")));

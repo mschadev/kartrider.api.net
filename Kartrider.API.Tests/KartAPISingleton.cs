@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Kartrider.API.Tests
 {
-    class KartAPISingleton
+    class KartApiSingleton
     {
-        public static KartAPI KartAPI { get; private set; }
-        static KartAPISingleton()
+        public static KartApi KartApi { get; private set; }
+        static KartApiSingleton()
         {
-            KartAPI = new KartAPI(Define.API_KEY);
+            KartApi = new KartApi(Define.API_KEY);
         }
     }
 }

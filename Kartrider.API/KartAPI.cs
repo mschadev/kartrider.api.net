@@ -12,15 +12,15 @@ namespace Kartrider.API
     /// <summary>
     /// Kartrider OPEN API 클래스
     /// </summary>
-    public class KartAPI
+    public class KartApi
     {
         private readonly HttpClient _httpClient;
 
         /// <summary>
-        /// KartAPI 생성자
+        /// KartApi 생성자
         /// </summary>
         /// <param name="apiKey">API 키</param>
-        public KartAPI(string apiKey)
+        public KartApi(string apiKey)
         {
             _httpClient = new HttpClient
             {
@@ -59,7 +59,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIRequestException(e, query);
+                throw CreateKartApiRequestException(e, query);
             }
             return JsonSerializer.Deserialize<UserInfo>(responseStr);
         }
@@ -80,7 +80,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIRequestException(e, query);
+                throw CreateKartApiRequestException(e, query);
             }
             return JsonSerializer.Deserialize<UserInfo>(responseStr);
         }
@@ -118,7 +118,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIRequestException(e, query);
+                throw CreateKartApiRequestException(e, query);
             }
             return JsonSerializer.Deserialize<MatchResponse>(responseStr);
         }
@@ -155,7 +155,7 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIRequestException(e, query);
+                throw CreateKartApiRequestException(e, query);
             }
             return JsonSerializer.Deserialize<AllMatches>(responseStr);
         }
@@ -176,19 +176,19 @@ namespace Kartrider.API
             }
             catch(AggregateException e)
             {
-                throw CreateKartAPIRequestException(e, query);
+                throw CreateKartApiRequestException(e, query);
             }
             return JsonSerializer.Deserialize<MatchDetail>(responseStr);
         }
-        private KartApiRequestException CreateKartAPIRequestException(AggregateException e,string queryParameter)
+        private KartApiRequestException CreateKartApiRequestException(AggregateException e,string queryParameter)
         {
             //One or more errors occurred. (Response status code does not indicate success: 400 (Bad Request).)
             string apiKey = _httpClient.DefaultRequestHeaders.Authorization.Scheme;
             string statusCode = Regex.Match(e.Message, @"\d{3}").Value;
-            KartApiStatusCode kartAPIStatusCode = (KartApiStatusCode)Enum.Parse(typeof(KartApiStatusCode), statusCode);
+            KartApiStatusCode KartApiStatusCode = (KartApiStatusCode)Enum.Parse(typeof(KartApiStatusCode), statusCode);
             int messageIndex = e.Message.LastIndexOf('(')+1;
             string message = e.Message.Substring(messageIndex, e.Message.LastIndexOf(')') - messageIndex - 2) + ".";
-            return new KartApiRequestException(message, queryParameter, apiKey, kartAPIStatusCode);
+            return new KartApiRequestException(message, queryParameter, apiKey, KartApiStatusCode);
         }
     }
 }
