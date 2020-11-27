@@ -5,7 +5,7 @@ namespace Kartrider.API.Exceptions
     /// <summary>
     /// API 호출 예외 클래스
     /// </summary>
-    public class KartAPIRequestException : System.Exception
+    public class KartApiRequestException : System.Exception
     {
         /// <summary>
         /// API Key 뒷자리에서 10자만 자른 키값
@@ -26,13 +26,13 @@ namespace Kartrider.API.Exceptions
         /// <param name="queryParameter">API 호출 URL의 쿼리 파라미터</param>
         /// <param name="apiKey">API Key</param>
         /// <param name="kartAPIStatusCode">API 호출 결과 상태 코드</param>
-        public KartAPIRequestException(string message,string queryParameter, string apiKey, KartApiStatusCode kartAPIStatusCode) : base(message)
+        public KartApiRequestException(string message, string queryParameter, string apiKey, KartApiStatusCode kartAPIStatusCode) : base(message)
         {
             QueryParameter = queryParameter;
             StatusCode = kartAPIStatusCode;
             APIKey = apiKey?.Substring(apiKey.Length - 10, 10);
         }
-       
+
     }
     /// <summary>
     /// API 호출 결과 상태 코드
