@@ -17,20 +17,23 @@ namespace Kartrider.API.Json.Converter
             {
                 switch (reader.TokenType)
                 {
-                    // example: {"id":"ID","name":"VALUE"}
+                    // Json example: {"id":"ID","name":"VALUE"}
                     case JsonTokenType.StartObject:
                         {
-                            //current: {
+                            //아래 코드가 실행되기 전 현재: {
                             reader.Read();
-                            //string idKey = reader.GetString(); // "id"
+                            //현재: "id"
                             reader.Read();
-                            string idValue = reader.GetString(); // "ID"
+                            //현재: "ID"
+                            string idValue = reader.GetString(); // "ID" 가져오기
                             reader.Read();
-                            //string nameKey = reader.GetString(); // "name"
+                            //현재: "name"
                             reader.Read();
-                            string nameValue = reader.GetString(); // "VALUE"
+                            //현재: "VALUE"
+                            string nameValue = reader.GetString(); // "VALUE" 가져오기
                             keyValues.Add(idValue, nameValue);
-                            reader.Read(); // } (JsonTokenType.EndObject)
+                            reader.Read(); 
+                            //현재: } (JsonTokenType.EndObject)
                             break;
                         }
                     case JsonTokenType.EndArray:
