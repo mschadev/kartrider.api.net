@@ -38,7 +38,6 @@ namespace Kartrider.API
             {
                 var response = client.GetByteArrayAsync(Define.METADATA_URL);
                 response.Wait();
-                byte[] data = response.Result;
                 response.Dispose();
                 File.WriteAllBytes(path, response.Result);
             }
