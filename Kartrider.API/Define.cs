@@ -3,7 +3,7 @@
     /// <summary>
     /// 상수 정의 클래스
     /// </summary>
-    internal class Define
+    internal static class Define
     {
         /// <summary>
         /// Kartrider OPEN API V1.0 URL
