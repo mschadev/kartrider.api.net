@@ -186,7 +186,7 @@ namespace Kartrider.API
             //One or more errors occurred. (Response status code does not indicate success: 400 (Bad Request).)
             string apiKey = _httpClient.DefaultRequestHeaders.Authorization.Scheme;
             string statusCode = Regex.Match(e.Message, @"\d{3}").Value;
-            KartAPIStatusCode kartAPIStatusCode = (KartAPIStatusCode)Enum.Parse(typeof(KartAPIStatusCode), statusCode);
+            KartApiStatusCode kartAPIStatusCode = (KartApiStatusCode)Enum.Parse(typeof(KartApiStatusCode), statusCode);
             int messageIndex = e.Message.LastIndexOf('(')+1;
             string message = e.Message.Substring(messageIndex, e.Message.LastIndexOf(')') - messageIndex - 2) + ".";
             return new KartAPIRequestException(message, queryParameter, apiKey, kartAPIStatusCode);

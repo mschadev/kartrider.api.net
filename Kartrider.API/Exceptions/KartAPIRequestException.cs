@@ -18,7 +18,7 @@ namespace Kartrider.API.Exceptions
         /// <summary>
         /// 호출 결과 상태 코드
         /// </summary>
-        public KartAPIStatusCode StatusCode { get; set; }
+        public KartApiStatusCode StatusCode { get; set; }
         /// <summary>
         /// 생성자
         /// </summary>
@@ -26,7 +26,7 @@ namespace Kartrider.API.Exceptions
         /// <param name="queryParameter">API 호출 URL의 쿼리 파라미터</param>
         /// <param name="apiKey">API Key</param>
         /// <param name="kartAPIStatusCode">API 호출 결과 상태 코드</param>
-        public KartAPIRequestException(string message,string queryParameter, string apiKey,KartAPIStatusCode kartAPIStatusCode) : base(message)
+        public KartAPIRequestException(string message,string queryParameter, string apiKey, KartApiStatusCode kartAPIStatusCode) : base(message)
         {
             QueryParameter = queryParameter;
             StatusCode = kartAPIStatusCode;
@@ -37,7 +37,7 @@ namespace Kartrider.API.Exceptions
     /// <summary>
     /// API 호출 결과 상태 코드
     /// </summary>
-    public enum KartAPIStatusCode
+    public enum KartApiStatusCode
     {
         /// <summary>
         /// 요청 형식 오류 (잘못된 파라미터 입력)
