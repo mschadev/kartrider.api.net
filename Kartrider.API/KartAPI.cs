@@ -98,11 +98,11 @@ namespace Kartrider.API
         {
             if (offset < 0)
             {
-                throw new ArgumentOutOfRangeException("Valid 'offset' Value Range: 0 < offset");
+                throw new ArgumentOutOfRangeException("offset","Valid 'offset' Value Range: 0 < offset");
             }
             if (limit < 1 || 500 < limit)
             {
-                throw new ArgumentOutOfRangeException("Valid 'limit' Value Range: 1 < limit < 500");
+                throw new ArgumentOutOfRangeException("limit","Valid 'limit' Value Range: 1 < limit < 500");
             }
             string matchTypeQueryValue = matchTypes == null ? "" : string.Join(",", matchTypes);
             string query = $"users/{accessId}" +
@@ -135,11 +135,11 @@ namespace Kartrider.API
         {
             if (offset < 0)
             {
-                throw new ArgumentOutOfRangeException("Valid 'offset' Value Range: 0 < offset");
+                throw new ArgumentOutOfRangeException("offset","Valid 'offset' Value Range: 0 < offset");
             }
             if (limit < 1 || 500 < limit)
             {
-                throw new ArgumentOutOfRangeException("Valid 'limit' Value Range: 1 < limit < 500");
+                throw new ArgumentOutOfRangeException("limit","Valid 'limit' Value Range: 1 < limit < 500");
             }
             string matchTypeQueryValue = matchTypes == null ? "" : string.Join(",", matchTypes);
             string query = $"matches/all" +
