@@ -182,12 +182,10 @@ namespace Kartrider.API
         }
         private KartApiRequestException CreateKartApiRequestException(AggregateException e,string queryParameter)
         {
-            //One or more errors occurred. (Response status code does not indicate success: 400 (Bad Request).)
             string apiKey = _httpClient.DefaultRequestHeaders.Authorization.Scheme;
             string statusCode = Regex.Match(e.Message, @"\d{3}").Value;
             KartApiStatusCode KartApiStatusCode = (KartApiStatusCode)Enum.Parse(typeof(KartApiStatusCode), statusCode);
-            int messageIndex = e.Message.LastIndexOf('(')+1;
-            string message = e.Message.Substring(messageIndex, e.Message.LastIndexOf(')') - messageIndex - 2) + ".";
+            string message = e.Message;
             return new KartApiRequestException(message, queryParameter, apiKey, KartApiStatusCode);
         }
     }
