@@ -17,6 +17,78 @@ namespace Kartrider.API.Tests
         {
            new KartApi(Define.API_KEY);
         }
+        [TestMethod("GetMatchesByAccessId 인수 예외")]
+        public void GetMatchesByAccessIdArgumentExceptionTest()
+        {
+            KartApi kartApi = KartApiSingleton.KartApi;
+            bool exception = false;
+            try
+            {
+                kartApi.GetMatchesByAccessId("302575272", null, null, -1, 0);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                exception = true;
+            }
+            Assert.IsTrue(exception);
+
+            exception = false;
+            try
+            {
+                kartApi.GetMatchesByAccessId("302575272", null, null, 1,0);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                exception = true;
+            }
+            Assert.IsTrue(exception);
+            exception = false;
+            try
+            {
+                kartApi.GetMatchesByAccessId("302575272", null, null, 1, 1);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                exception = true;
+            }
+            Assert.IsFalse(exception);
+        }
+        [TestMethod("GetAllMatches 인수 테스트")]
+        public void GetAllMatchesArgumentExceptionTest()
+        {
+            KartApi kartApi = KartApiSingleton.KartApi;
+            bool exception = false;
+            try
+            {
+                kartApi.GetAllMatches(null,null,-1,0);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                exception = true;
+            }
+            Assert.IsTrue(exception);
+
+            exception = false;
+            try
+            {
+                kartApi.GetAllMatches(null, null, 1, 0);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                exception = true;
+            }
+            Assert.IsTrue(exception);
+            exception = false;
+            try
+            {
+                kartApi.GetAllMatches(null, null, 1, 1);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                exception = true;
+            }
+            Assert.IsFalse(exception);
+        }
         [TestMethod(displayName: "메타데이터 다운로드")]
         public void DownloadMetadata()
         {
