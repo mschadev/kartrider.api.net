@@ -95,5 +95,49 @@ namespace Kartrider.API.Tests
                     Assert.AreEqual(matchDetail1.Players[i].Pet, matchDetail2.Players[i].Pet);
                 }
         }
+        [TestMethod("MatchResponse Deserialize/Serialize Test")]
+        public void MatchResponseSerializer()
+        {
+            KartApi kartApi = KartApiSingleton.KartApi;
+            MatchResponse matchResponse1 = kartApi.GetMatchesByAccessId("302575272");
+            string json = JsonSerializer.Serialize(matchResponse1);
+            MatchResponse matchResponse2 = JsonSerializer.Deserialize<MatchResponse>(json);
+            Assert.AreEqual(matchResponse1.NickName, matchResponse2.NickName);
+            for(int i = 0; i < matchResponse1.Matches.Count; i++)
+            {
+                Assert.AreEqual(matchResponse1.Matches[i].MatchType, matchResponse2.Matches[i].MatchType);
+                for(int j = 0; j < matchResponse1.Matches[i].Matches.Count; j++)
+                {
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].AccountNo, matchResponse2.Matches[i].Matches[j].AccountNo);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].ChannelName, matchResponse2.Matches[i].Matches[j].ChannelName);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Character, matchResponse2.Matches[i].Matches[j].Character);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].EndTime, matchResponse2.Matches[i].Matches[j].EndTime);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].MatchId, matchResponse2.Matches[i].Matches[j].MatchId);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].MatchResult, matchResponse2.Matches[i].Matches[j].MatchResult);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].MatchType, matchResponse2.Matches[i].Matches[j].MatchType);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].PlayerCount, matchResponse2.Matches[i].Matches[j].PlayerCount);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].StartTime, matchResponse2.Matches[i].Matches[j].StartTime);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].TeamId, matchResponse2.Matches[i].Matches[j].TeamId);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].TrackId, matchResponse2.Matches[i].Matches[j].TrackId);
+
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.AccountNo, matchResponse2.Matches[i].Matches[j].Player.AccountNo);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.Character, matchResponse2.Matches[i].Matches[j].Player.Character);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.CharacterName, matchResponse2.Matches[i].Matches[j].Player.CharacterName);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.FlyingPet, matchResponse2.Matches[i].Matches[j].Player.FlyingPet);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.Kart, matchResponse2.Matches[i].Matches[j].Player.Kart);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.License, matchResponse2.Matches[i].Matches[j].Player.License);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.MatchRank, matchResponse2.Matches[i].Matches[j].Player.MatchRank);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.MatchRetired, matchResponse2.Matches[i].Matches[j].Player.MatchRetired);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.MatchTime, matchResponse2.Matches[i].Matches[j].Player.MatchTime);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.MatchWin, matchResponse2.Matches[i].Matches[j].Player.MatchWin);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.PartsEngine, matchResponse2.Matches[i].Matches[j].Player.PartsEngine);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.PartsHandle, matchResponse2.Matches[i].Matches[j].Player.PartsHandle);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.PartsKit, matchResponse2.Matches[i].Matches[j].Player.PartsKit);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.PartsWheel, matchResponse2.Matches[i].Matches[j].Player.PartsWheel);
+                    Assert.AreEqual(matchResponse1.Matches[i].Matches[j].Player.Pet, matchResponse2.Matches[i].Matches[j].Player.Pet);
+                }
+            }
+
+        }
     }
 }
