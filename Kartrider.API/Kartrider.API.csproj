@@ -14,7 +14,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <Version>1.0.4-beta.2</Version>
+    <Version>1.0.5</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>ko</NeutralLanguage>
   </PropertyGroup>
