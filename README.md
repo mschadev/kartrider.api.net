@@ -29,15 +29,15 @@
 ## 설치
 ### 패키지 매니저
 ```PM
-Install-Package Kartrider.API -Version 1.0.3
+Install-Package Kartrider.API -Version 1.0.5
 ```
 ### NET CLI
 ```bash
-dotnet add package Kartrider.API --version 1.0.3
+dotnet add package Kartrider.API --version 1.0.5
 ```
 ### PackageReference
 ```xml
-<PackageReference Include="Kartrider.API" Version="1.0.3" />
+<PackageReference Include="Kartrider.API" Version="1.0.5" />
 ```
 
 ## 사용법
@@ -51,7 +51,7 @@ namespace test
         static void Main(string[] args)
         {
             string apiKey = "APIKEY";
-            KartAPI kartAPI = new KartAPI(apiKey);
+            KartApi kartAPI = new KartApi(apiKey);
         }
     }
 }
