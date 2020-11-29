@@ -32,6 +32,7 @@ namespace Kartrider.API.Tests
             UserInfo userInfo = KartApi.GetUserInfoByAccessId("302575272");
             Assert.AreEqual(userInfo.AccessId, "302575272");
             Assert.AreEqual(userInfo.Nickname, "TTEESSTT");
+            Assert.AreEqual(userInfo.Level,40);
         }
         [TestMethod(displayName: "라이더명으로 유저 정보 조회")]
         public void GetUserInfoByNickname()
@@ -40,6 +41,7 @@ namespace Kartrider.API.Tests
             UserInfo userInfo = KartApi.GetUserInfoByNickname("TTEESSTT");
             Assert.AreEqual(userInfo.AccessId, "302575272");
             Assert.AreEqual(userInfo.Nickname, "TTEESSTT");
+            Assert.AreEqual(userInfo.Level, 40);
         }
         [TestMethod(displayName: "유저 고유 식별자로 매치 리스트 조회")]
         public void GetMatchesAsAccessId()
