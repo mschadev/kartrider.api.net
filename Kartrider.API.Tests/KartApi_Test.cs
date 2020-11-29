@@ -25,7 +25,7 @@ namespace Kartrider.API.Tests
             File.Delete("metadata.zip");
             Assert.IsTrue(check);
         }
-        [TestMethod(displayName: "유저 고유 식별자로 라이더명 조회")]
+        [TestMethod(displayName: "유저 고유 식별자로 유저 정보 조회")]
         public void GetUserInfoByAccessId()
         {
             KartApi KartApi = KartApiSingleton.KartApi;
