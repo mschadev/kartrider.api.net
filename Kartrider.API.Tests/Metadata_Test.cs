@@ -65,6 +65,7 @@ namespace Kartrider.API.Tests
             catch (KeyNotFoundException)
             {
             }
+            Assert.AreEqual(metadata[MetadataType.Character, "123", "ABC"], "ABC");
         }
         [TestMethod(displayName: "해쉬에서 문자열로 변경(AllMatches)")]
         public void HashToString1()
