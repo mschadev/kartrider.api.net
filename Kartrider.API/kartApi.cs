@@ -57,7 +57,7 @@ namespace Kartrider.API
                 response.Wait();
                 responseStr = response.Result;
             }
-            catch(AggregateException e)
+            catch(Exception e)
             {
                 throw CreateKartApiRequestException(e, query);
             }
@@ -78,7 +78,7 @@ namespace Kartrider.API
                 response.Wait();
                 responseStr = response.Result;
             }
-            catch(AggregateException e)
+            catch(Exception e)
             {
                 throw CreateKartApiRequestException(e, query);
             }
@@ -116,7 +116,7 @@ namespace Kartrider.API
                 response.Wait();
                 responseStr = response.Result;
             }
-            catch(AggregateException e)
+            catch(Exception e)
             {
                 throw CreateKartApiRequestException(e, query);
             }
@@ -153,7 +153,7 @@ namespace Kartrider.API
                 response.Wait();
                 responseStr = response.Result;
             }
-            catch(AggregateException e)
+            catch(Exception e)
             {
                 throw CreateKartApiRequestException(e, query);
             }
@@ -174,13 +174,13 @@ namespace Kartrider.API
                 response.Wait();
                 responseStr = response.Result;
             }
-            catch(AggregateException e)
+            catch(Exception e)
             {
                 throw CreateKartApiRequestException(e, query);
             }
             return JsonSerializer.Deserialize<MatchDetail>(responseStr);
         }
-        private KartApiRequestException CreateKartApiRequestException(AggregateException e,string queryParameter)
+        private KartApiRequestException CreateKartApiRequestException(Exception e,string queryParameter)
         {
             string apiKey = _httpClient.DefaultRequestHeaders.Authorization.Scheme;
             string statusCode = Regex.Match(e.Message, @"\d{3}").Value;
