@@ -1,3 +1,7 @@
+# 프로젝트 이동
+해당 프로젝트는 [Kartrider.Net](https://github.com/zxc010613/Kartrider.Net)으로 이동되었습니다.
+
+
 # kartrider-api-net
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 ![Ubuntu .NET Core](https://github.com/zxc010613/kartrider.api.net/workflows/Ubuntu%20.NET%20Core/badge.svg)
